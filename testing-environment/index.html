@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Card Inventory Tracker - TESTING ENVIRONMENT</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1>Pokemon Card Inventory Tracker - TESTING</h1>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="tab-navigation">
+            <button class="tab-btn active" data-tab="dashboard">Dashboard</button>
+            <button class="tab-btn" data-tab="cards">Cards</button>
+            <button class="tab-btn" data-tab="settings">Settings</button>
+            <button class="tab-btn" data-tab="features">Features</button>
+            <button class="tab-btn" data-tab="statistics">Statistics</button>
+            <button class="tab-btn" data-tab="backup-menu">Backup Menu</button>
+            <button class="tab-btn" data-tab="dev">Dev Area</button>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Dashboard Tab -->
+            <div id="dashboard" class="tab-content active">
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <h3>Total Cards</h3>
+                        <span id="total-cards">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Value</h3>
+                        <span id="total-value">$0.00</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Recent Additions</h3>
+                        <span id="recent-additions">0</span>
+                    </div>
+                </div>
+                <div class="recent-cards">
+                    <h3>Recently Added Cards</h3>
+                    <div id="recent-cards-list" class="cards-preview">
+                        <p class="empty-state">No cards added yet. Go to the Cards tab to add your first card!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cards Tab -->
+            <div id="cards" class="tab-content">
+                <!-- Header Section -->
+                <div class="header-top">
+                    <div class="logo">Pokemon Card Inventory Tracker</div>
+                </div>
+
+                <!-- Search, Filters, Grid/List Toggle -->
+                <div class="card-controls">
+                    <input type="text" id="search-input" placeholder="Search cards by name...">
+                    
+                    <input type="text" id="filter-set" list="filter-set-options" placeholder="Type or select a set to filter...">
+                    <datalist id="filter-set-options">
+                        <!-- Scarlet & Violet Era (Standard) -->
+                        <option value="Stellar Crown (SCR)">Stellar Crown (SCR)</option>
+                        <option value="Shrouded Fable (SFA)">Shrouded Fable (SFA)</option>
+                        <option value="Twilight Masquerade (TWM)">Twilight Masquerade (TWM)</option>
+                        <option value="Temporal Forces (TEF)">Temporal Forces (TEF)</option>
+                        <option value="Paldean Fates (PAF)">Paldean Fates (PAF)</option>
+                        <option value="Paradox Rift (PAR)">Paradox Rift (PAR)</option>
+                        <option value="Scarlet & Violet—151 (MEW)">Scarlet & Violet—151 (MEW)</option>
+                        <option value="Obsidian Flames (OBF)">Obsidian Flames (OBF)</option>
+                        <option value="Paldea Evolved (PAL)">Paldea Evolved (PAL)</option>
+                        <option value="Scarlet & Violet (SVI)">Scarlet & Violet (SVI)</option>
+                        <!-- Sword & Shield Era (Standard) -->
+                        <option value="Crown Zenith (CRZ)">Crown Zenith (CRZ)</option>
+                        <option value="Silver Tempest (SIT)">Silver Tempest (SIT)</option>
+                        <option value="Lost Origin (LOR)">Lost Origin (LOR)</option>
+                        <option value="Pokémon GO (PGO)">Pokémon GO (PGO)</option>
+                        <option value="Astral Radiance (ASR)">Astral Radiance (ASR)</option>
+                        <option value="Brilliant Stars (BRS)">Brilliant Stars (BRS)</option>
+                        <!-- Sword & Shield Era (Expanded) -->
+                        <option value="Fusion Strike (FST)">Fusion Strike (FST)</option>
+                        <option value="Celebrations (CEL)">Celebrations (CEL)</option>
+                        <option value="Evolving Skies (EVS)">Evolving Skies (EVS)</option>
+                        <option value="Chilling Reign (CRE)">Chilling Reign (CRE)</option>
+                        <option value="Battle Styles (BST)">Battle Styles (BST)</option>
+                        <option value="Shining Fates (SHF)">Shining Fates (SHF)</option>
+                        <option value="Vivid Voltage (VIV)">Vivid Voltage (VIV)</option>
+                        <option value="Champion's Path (CPA)">Champion's Path (CPA)</option>
+                        <option value="Darkness Ablaze (DAA)">Darkness Ablaze (DAA)</option>
+                        <option value="Rebel Clash (RCL)">Rebel Clash (RCL)</option>
+                        <option value="Sword & Shield (SSH)">Sword & Shield (SSH)</option>
+                        <!-- Sun & Moon Era -->
+                        <option value="Cosmic Eclipse (CEC)">Cosmic Eclipse (CEC)</option>
+                        <option value="Hidden Fates (HIF)">Hidden Fates (HIF)</option>
+                        <option value="Unified Minds (UNM)">Unified Minds (UNM)</option>
+                        <option value="Unbroken Bonds (UNB)">Unbroken Bonds (UNB)</option>
+                        <option value="Detective Pikachu (DET)">Detective Pikachu (DET)</option>
+                        <option value="Team Up (TEU)">Team Up (TEU)</option>
+                        <option value="Lost Thunder (LOT)">Lost Thunder (LOT)</option>
+                        <option value="Dragon Majesty (DRM)">Dragon Majesty (DRM)</option>
+                        <option value="Celestial Storm (CES)">Celestial Storm (CES)</option>
+                        <option value="Forbidden Light (FLI)">Forbidden Light (FLI)</option>
+                        <option value="Ultra Prism (UPR)">Ultra Prism (UPR)</option>
+                        <option value="Crimson Invasion (CIN)">Crimson Invasion (CIN)</option>
+                        <option value="Shining Legends (SLG)">Shining Legends (SLG)</option>
+                        <option value="Burning Shadows (BUS)">Burning Shadows (BUS)</option>
+                        <option value="Guardians Rising (GRI)">Guardians Rising (GRI)</option>
+                        <option value="Sun & Moon (SUM)">Sun & Moon (SUM)</option>
+                        <!-- XY Era -->
+                        <option value="Evolutions (EVO)">Evolutions (EVO)</option>
+                        <option value="Steam Siege (STS)">Steam Siege (STS)</option>
+                        <option value="Fates Collide (FCO)">Fates Collide (FCO)</option>
+                        <option value="Generations (GEN)">Generations (GEN)</option>
+                        <option value="BREAKpoint (BKP)">BREAKpoint (BKP)</option>
+                        <option value="BREAKthrough (BKT)">BREAKthrough (BKT)</option>
+                        <option value="Ancient Origins (AOR)">Ancient Origins (AOR)</option>
+                        <option value="Roaring Skies (ROS)">Roaring Skies (ROS)</option>
+                        <option value="Double Crisis (DCR)">Double Crisis (DCR)</option>
+                        <option value="Primal Clash (PRC)">Primal Clash (PRC)</option>
+                        <option value="Phantom Forces (PHF)">Phantom Forces (PHF)</option>
+                        <option value="Furious Fists (FFI)">Furious Fists (FFI)</option>
+                        <option value="Flashfire (FLF)">Flashfire (FLF)</option>
+                        <option value="XY (XY)">XY (XY)</option>
+                        <option value="Kalos Starter Set (KSS)">Kalos Starter Set (KSS)</option>
+                        <!-- Black & White Era -->
+                        <option value="Legendary Treasures (LTR)">Legendary Treasures (LTR)</option>
+                        <option value="Plasma Blast (PLB)">Plasma Blast (PLB)</option>
+                        <option value="Plasma Freeze (PLF)">Plasma Freeze (PLF)</option>
+                        <option value="Plasma Storm (PLS)">Plasma Storm (PLS)</option>
+                        <option value="Boundaries Crossed (BCR)">Boundaries Crossed (BCR)</option>
+                        <option value="Dragon Vault (DRV)">Dragon Vault (DRV)</option>
+                        <option value="Dragons Exalted (DRX)">Dragons Exalted (DRX)</option>
+                        <option value="Dark Explorers (DEX)">Dark Explorers (DEX)</option>
+                        <option value="Next Destinies (NXD)">Next Destinies (NXD)</option>
+                        <option value="Noble Victories (NVI)">Noble Victories (NVI)</option>
+                        <option value="Emerging Powers (EPO)">Emerging Powers (EPO)</option>
+                        <option value="Black & White (BLW)">Black & White (BLW)</option>
+                        <!-- Diamond & Pearl Era -->
+                        <option value="Call of Legends (CL)">Call of Legends (CL)</option>
+                        <option value="Triumphant (TM)">Triumphant (TM)</option>
+                        <option value="Undaunted (UD)">Undaunted (UD)</option>
+                        <option value="Unleashed (UL)">Unleashed (UL)</option>
+                        <option value="HeartGold & SoulSilver (HS)">HeartGold & SoulSilver (HS)</option>
+                        <option value="Arceus (AR)">Arceus (AR)</option>
+                        <option value="Supreme Victors (SV)">Supreme Victors (SV)</option>
+                        <option value="Rising Rivals (RR)">Rising Rivals (RR)</option>
+                        <option value="Platinum (PL)">Platinum (PL)</option>
+                        <option value="Stormfront (SF)">Stormfront (SF)</option>
+                        <option value="Legends Awakened (LA)">Legends Awakened (LA)</option>
+                        <option value="Majestic Dawn (MD)">Majestic Dawn (MD)</option>
+                        <option value="Great Encounters (GE)">Great Encounters (GE)</option>
+                        <option value="Secret Wonders (SW)">Secret Wonders (SW)</option>
+                        <option value="Mysterious Treasures (MT)">Mysterious Treasures (MT)</option>
+                        <option value="Diamond & Pearl (DP)">Diamond & Pearl (DP)</option>
+                        <!-- EX Era -->
+                        <option value="EX Power Keepers (PK)">EX Power Keepers (PK)</option>
+                        <option value="EX Dragon Frontiers (DF)">EX Dragon Frontiers (DF)</option>
+                        <option value="EX Crystal Guardians (CG)">EX Crystal Guardians (CG)</option>
+                        <option value="EX Holon Phantoms (HP)">EX Holon Phantoms (HP)</option>
+                        <option value="EX Legend Maker (LM)">EX Legend Maker (LM)</option>
+                        <option value="EX Delta Species (DS)">EX Delta Species (DS)</option>
+                        <option value="EX Unseen Forces (UF)">EX Unseen Forces (UF)</option>
+                        <option value="EX Emerald (EM)">EX Emerald (EM)</option>
+                        <option value="EX Deoxys (DX)">EX Deoxys (DX)</option>
+                        <option value="EX Team Rocket Returns (TRR)">EX Team Rocket Returns (TRR)</option>
+                        <option value="EX FireRed & LeafGreen (RG)">EX FireRed & LeafGreen (RG)</option>
+                        <option value="EX Hidden Legends (HL)">EX Hidden Legends (HL)</option>
+                        <option value="EX Team Magma vs Team Aqua (MA)">EX Team Magma vs Team Aqua (MA)</option>
+                        <option value="EX Dragon (DR)">EX Dragon (DR)</option>
+                        <option value="EX Sandstorm (SS)">EX Sandstorm (SS)</option>
+                        <option value="EX Ruby & Sapphire (RS)">EX Ruby & Sapphire (RS)</option>
+                        <!-- Neo Era -->
+                        <option value="Skyridge (SK)">Skyridge (SK)</option>
+                        <option value="Aquapolis (AQ)">Aquapolis (AQ)</option>
+                        <option value="Expedition Base Set (EX)">Expedition Base Set (EX)</option>
+                        <option value="Legendary Collection (LC)">Legendary Collection (LC)</option>
+                        <option value="Neo Destiny (N4)">Neo Destiny (N4)</option>
+                        <option value="Neo Revelation (N3)">Neo Revelation (N3)</option>
+                        <option value="Neo Discovery (N2)">Neo Discovery (N2)</option>
+                        <option value="Neo Genesis (N1)">Neo Genesis (N1)</option>
+                        <option value="Southern Islands (SI)">Southern Islands (SI)</option>
+                        <!-- Base Set Era -->
+                        <option value="Gym Challenge (G2)">Gym Challenge (G2)</option>
+                        <option value="Gym Heroes (G1)">Gym Heroes (G1)</option>
+                        <option value="Team Rocket (TR)">Team Rocket (TR)</option>
+                        <option value="Base Set 2 (B2)">Base Set 2 (B2)</option>
+                        <option value="Fossil (FO)">Fossil (FO)</option>
+                        <option value="Jungle (JU)">Jungle (JU)</option>
+                        <option value="Base Set (BS)">Base Set (BS)</option>
+                        <!-- McDonald's Collections -->
+                        <option value="McDonald's Collection (MCD)">McDonald's Collection (MCD)</option>
+                        <!-- Custom -->
+                        <option value="Custom/Other">Custom/Other</option>
+                    </datalist>
+                    
+                    <select id="filter-rarity">
+                        <option value="">All Rarities</option>
+                        <option value="Common">Common</option>
+                        <option value="Uncommon">Uncommon</option>
+                        <option value="Rare">Rare</option>
+                        <option value="Rare Holo">Rare Holo</option>
+                        <option value="Rare Holo EX">Rare Holo EX</option>
+                        <option value="Rare Holo GX">Rare Holo GX</option>
+                        <option value="Rare Holo V">Rare Holo V</option>
+                        <option value="Rare Holo VMAX">Rare Holo VMAX</option>
+                        <option value="Rare Holo VSTAR">Rare Holo VSTAR</option>
+                        <option value="Ultra Rare">Ultra Rare</option>
+                        <option value="Secret Rare">Secret Rare</option>
+                        <option value="Rainbow Rare">Rainbow Rare</option>
+                        <option value="Gold Rare">Gold Rare</option>
+                        <option value="Amazing Rare">Amazing Rare</option>
+                        <option value="Radiant Rare">Radiant Rare</option>
+                        <option value="Special Illustration Rare">Special Illustration Rare</option>
+                    </select>
+                    
+                    <select id="filter-condition">
+                        <option value="">All Conditions</option>
+                        <option value="Gem Mint (GM) 10">Gem Mint (GM) 10</option>
+                        <option value="Mint (M) 9">Mint (M) 9</option>
+                        <option value="Near Mint+ (NM+) 8.5">Near Mint+ (NM+) 8.5</option>
+                        <option value="Near Mint (NM) 8">Near Mint (NM) 8</option>
+                        <option value="Near Mint- (NM-) 7.5">Near Mint- (NM-) 7.5</option>
+                        <option value="Excellent+ (EX+) 7">Excellent+ (EX+) 7</option>
+                        <option value="Excellent (EX) 6">Excellent (EX) 6</option>
+                        <option value="Excellent- (EX-) 5.5">Excellent- (EX-) 5.5</option>
+                        <option value="Very Good+ (VG+) 5">Very Good+ (VG+) 5</option>
+                        <option value="Very Good (VG) 4">Very Good (VG) 4</option>
+                        <option value="Good+ (G+) 3.5">Good+ (G+) 3.5</option>
+                        <option value="Good (G) 3">Good (G) 3</option>
+                        <option value="Fair (F) 2">Fair (F) 2</option>
+                        <option value="Poor (P) 1">Poor (P) 1</option>
+                    </select>
+
+                    <div class="view-toggle">
+                        <button id="grid-view-btn" class="active">Grid</button>
+                        <button id="list-view-btn">List</button>
+                    </div>
+                </div>
+
+                <!-- Dashboard Stats -->
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <h3>Total Cards</h3>
+                        <span id="cards-total-cards">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Value</h3>
+                        <span id="cards-total-value">$0.00</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Recent Additions</h3>
+                        <span id="cards-recent-additions">0</span>
+                    </div>
+                </div>
+
+                <!-- Add New Card Form -->
+                <section class="add-card-form">
+                    <button id="add-card-btn" class="btn btn-primary">Add New Card</button>
+                    <form id="card-form" style="display: none;">
+                        <input type="text" id="card-name" placeholder="Card Name" required>
+                        <input type="text" id="card-set" list="set-options" placeholder="Type or select a set..." required>
+                        <datalist id="set-options">
+                            <!-- Scarlet & Violet Era (Standard) -->
+                            <option value="Stellar Crown (SCR)">Stellar Crown (SCR) - 2024</option>
+                            <option value="Shrouded Fable (SFA)">Shrouded Fable (SFA) - 2024</option>
+                            <option value="Twilight Masquerade (TWM)">Twilight Masquerade (TWM) - 2024</option>
+                            <option value="Temporal Forces (TEF)">Temporal Forces (TEF) - 2024</option>
+                            <option value="Paldean Fates (PAF)">Paldean Fates (PAF) - 2024</option>
+                            <option value="Paradox Rift (PAR)">Paradox Rift (PAR) - 2023</option>
+                            <option value="Scarlet & Violet—151 (MEW)">Scarlet & Violet—151 (MEW) - 2023</option>
+                            <option value="Obsidian Flames (OBF)">Obsidian Flames (OBF) - 2023</option>
+                            <option value="Paldea Evolved (PAL)">Paldea Evolved (PAL) - 2023</option>
+                            <option value="Scarlet & Violet (SVI)">Scarlet & Violet (SVI) - 2023</option>
+                            <!-- Sword & Shield Era (Standard) -->
+                            <option value="Crown Zenith (CRZ)">Crown Zenith (CRZ) - 2023</option>
+                            <option value="Silver Tempest (SIT)">Silver Tempest (SIT) - 2022</option>
+                            <option value="Lost Origin (LOR)">Lost Origin (LOR) - 2022</option>
+                            <option value="Pokémon GO (PGO)">Pokémon GO (PGO) - 2022</option>
+                            <option value="Astral Radiance (ASR)">Astral Radiance (ASR) - 2022</option>
+                            <option value="Brilliant Stars (BRS)">Brilliant Stars (BRS) - 2022</option>
+                            <!-- Sword & Shield Era (Expanded) -->
+                            <option value="Fusion Strike (FST)">Fusion Strike (FST) - 2021</option>
+                            <option value="Celebrations (CEL)">Celebrations (CEL) - 2021</option>
+                            <option value="Evolving Skies (EVS)">Evolving Skies (EVS) - 2021</option>
+                            <option value="Chilling Reign (CRE)">Chilling Reign (CRE) - 2021</option>
+                            <option value="Battle Styles (BST)">Battle Styles (BST) - 2021</option>
+                            <option value="Shining Fates (SHF)">Shining Fates (SHF) - 2021</option>
+                            <option value="Vivid Voltage (VIV)">Vivid Voltage (VIV) - 2020</option>
+                            <option value="Champion's Path (CPA)">Champion's Path (CPA) - 2020</option>
+                            <option value="Darkness Ablaze (DAA)">Darkness Ablaze (DAA) - 2020</option>
+                            <option value="Rebel Clash (RCL)">Rebel Clash (RCL) - 2020</option>
+                            <option value="Sword & Shield (SSH)">Sword & Shield (SSH) - 2020</option>
+                            <!-- Sun & Moon Era -->
+                            <option value="Cosmic Eclipse (CEC)">Cosmic Eclipse (CEC) - 2019</option>
+                            <option value="Hidden Fates (HIF)">Hidden Fates (HIF) - 2019</option>
+                            <option value="Unified Minds (UNM)">Unified Minds (UNM) - 2019</option>
+                            <option value="Unbroken Bonds (UNB)">Unbroken Bonds (UNB) - 2019</option>
+                            <option value="Detective Pikachu (DET)">Detective Pikachu (DET) - 2019</option>
+                            <option value="Team Up (TEU)">Team Up (TEU) - 2019</option>
+                            <option value="Lost Thunder (LOT)">Lost Thunder (LOT) - 2018</option>
+                            <option value="Dragon Majesty (DRM)">Dragon Majesty (DRM) - 2018</option>
+                            <option value="Celestial Storm (CES)">Celestial Storm (CES) - 2018</option>
+                            <option value="Forbidden Light (FLI)">Forbidden Light (FLI) - 2018</option>
+                            <option value="Ultra Prism (UPR)">Ultra Prism (UPR) - 2018</option>
+                            <option value="Crimson Invasion (CIN)">Crimson Invasion (CIN) - 2017</option>
+                            <option value="Shining Legends (SLG)">Shining Legends (SLG) - 2017</option>
+                            <option value="Burning Shadows (BUS)">Burning Shadows (BUS) - 2017</option>
+                            <option value="Guardians Rising (GRI)">Guardians Rising (GRI) - 2017</option>
+                            <option value="Sun & Moon (SUM)">Sun & Moon (SUM) - 2017</option>
+                            <!-- XY Era -->
+                            <option value="Evolutions (EVO)">Evolutions (EVO) - 2016</option>
+                            <option value="Steam Siege (STS)">Steam Siege (STS) - 2016</option>
+                            <option value="Fates Collide (FCO)">Fates Collide (FCO) - 2016</option>
+                            <option value="Generations (GEN)">Generations (GEN) - 2016</option>
+                            <option value="BREAKpoint (BKP)">BREAKpoint (BKP) - 2016</option>
+                            <option value="BREAKthrough (BKT)">BREAKthrough (BKT) - 2015</option>
+                            <option value="Ancient Origins (AOR)">Ancient Origins (AOR) - 2015</option>
+                            <option value="Roaring Skies (ROS)">Roaring Skies (ROS) - 2015</option>
+                            <option value="Double Crisis (DCR)">Double Crisis (DCR) - 2015</option>
+                            <option value="Primal Clash (PRC)">Primal Clash (PRC) - 2015</option>
+                            <option value="Phantom Forces (PHF)">Phantom Forces (PHF) - 2014</option>
+                            <option value="Furious Fists (FFI)">Furious Fists (FFI) - 2014</option>
+                            <option value="Flashfire (FLF)">Flashfire (FLF) - 2014</option>
+                            <option value="XY (XY)">XY (XY) - 2014</option>
+                            <option value="Kalos Starter Set (KSS)">Kalos Starter Set (KSS) - 2013</option>
+                            <!-- Black & White Era -->
+                            <option value="Legendary Treasures (LTR)">Legendary Treasures (LTR) - 2013</option>
+                            <option value="Plasma Blast (PLB)">Plasma Blast (PLB) - 2013</option>
+                            <option value="Plasma Freeze (PLF)">Plasma Freeze (PLF) - 2013</option>
+                            <option value="Plasma Storm (PLS)">Plasma Storm (PLS) - 2013</option>
+                            <option value="Boundaries Crossed (BCR)">Boundaries Crossed (BCR) - 2012</option>
+                            <option value="Dragon Vault (DRV)">Dragon Vault (DRV) - 2012</option>
+                            <option value="Dragons Exalted (DRX)">Dragons Exalted (DRX) - 2012</option>
+                            <option value="Dark Explorers (DEX)">Dark Explorers (DEX) - 2012</option>
+                            <option value="Next Destinies (NXD)">Next Destinies (NXD) - 2012</option>
+                            <option value="Noble Victories (NVI)">Noble Victories (NVI) - 2011</option>
+                            <option value="Emerging Powers (EPO)">Emerging Powers (EPO) - 2011</option>
+                            <option value="Black & White (BLW)">Black & White (BLW) - 2011</option>
+                            <!-- Diamond & Pearl Era -->
+                            <option value="Call of Legends (CL)">Call of Legends (CL) - 2011</option>
+                            <option value="Triumphant (TM)">Triumphant (TM) - 2010</option>
+                            <option value="Undaunted (UD)">Undaunted (UD) - 2010</option>
+                            <option value="Unleashed (UL)">Unleashed (UL) - 2010</option>
+                            <option value="HeartGold & SoulSilver (HS)">HeartGold & SoulSilver (HS) - 2010</option>
+                            <option value="Arceus (AR)">Arceus (AR) - 2009</option>
+                            <option value="Supreme Victors (SV)">Supreme Victors (SV) - 2009</option>
+                            <option value="Rising Rivals (RR)">Rising Rivals (RR) - 2009</option>
+                            <option value="Platinum (PL)">Platinum (PL) - 2009</option>
+                            <option value="Stormfront (SF)">Stormfront (SF) - 2008</option>
+                            <option value="Legends Awakened (LA)">Legends Awakened (LA) - 2008</option>
+                            <option value="Majestic Dawn (MD)">Majestic Dawn (MD) - 2008</option>
+                            <option value="Great Encounters (GE)">Great Encounters (GE) - 2008</option>
+                            <option value="Secret Wonders (SW)">Secret Wonders (SW) - 2007</option>
+                            <option value="Mysterious Treasures (MT)">Mysterious Treasures (MT) - 2007</option>
+                            <option value="Diamond & Pearl (DP)">Diamond & Pearl (DP) - 2007</option>
+                            <!-- EX Era -->
+                            <option value="EX Power Keepers (PK)">EX Power Keepers (PK) - 2007</option>
+                            <option value="EX Dragon Frontiers (DF)">EX Dragon Frontiers (DF) - 2006</option>
+                            <option value="EX Crystal Guardians (CG)">EX Crystal Guardians (CG) - 2006</option>
+                            <option value="EX Holon Phantoms (HP)">EX Holon Phantoms (HP) - 2006</option>
+                            <option value="EX Legend Maker (LM)">EX Legend Maker (LM) - 2006</option>
+                            <option value="EX Delta Species (DS)">EX Delta Species (DS) - 2005</option>
+                            <option value="EX Unseen Forces (UF)">EX Unseen Forces (UF) - 2005</option>
+                            <option value="EX Emerald (EM)">EX Emerald (EM) - 2005</option>
+                            <option value="EX Deoxys (DX)">EX Deoxys (DX) - 2005</option>
+                            <option value="EX Team Rocket Returns (TRR)">EX Team Rocket Returns (TRR) - 2004</option>
+                            <option value="EX FireRed & LeafGreen (RG)">EX FireRed & LeafGreen (RG) - 2004</option>
+                            <option value="EX Hidden Legends (HL)">EX Hidden Legends (HL) - 2004</option>
+                            <option value="EX Team Magma vs Team Aqua (MA)">EX Team Magma vs Team Aqua (MA) - 2004</option>
+                            <option value="EX Dragon (DR)">EX Dragon (DR) - 2003</option>
+                            <option value="EX Sandstorm (SS)">EX Sandstorm (SS) - 2003</option>
+                            <option value="EX Ruby & Sapphire (RS)">EX Ruby & Sapphire (RS) - 2003</option>
+                            <!-- Neo Era -->
+                            <option value="Skyridge (SK)">Skyridge (SK) - 2003</option>
+                            <option value="Aquapolis (AQ)">Aquapolis (AQ) - 2003</option>
+                            <option value="Expedition Base Set (EX)">Expedition Base Set (EX) - 2002</option>
+                            <option value="Legendary Collection (LC)">Legendary Collection (LC) - 2002</option>
+                            <option value="Neo Destiny (N4)">Neo Destiny (N4) - 2001</option>
+                            <option value="Neo Revelation (N3)">Neo Revelation (N3) - 2000</option>
+                            <option value="Neo Discovery (N2)">Neo Discovery (N2) - 2000</option>
+                            <option value="Neo Genesis (N1)">Neo Genesis (N1) - 2000</option>
+                            <option value="Southern Islands (SI)">Southern Islands (SI) - 2001</option>
+                            <!-- Base Set Era -->
+                            <option value="Gym Challenge (G2)">Gym Challenge (G2) - 2000</option>
+                            <option value="Gym Heroes (G1)">Gym Heroes (G1) - 2000</option>
+                            <option value="Team Rocket (TR)">Team Rocket (TR) - 2000</option>
+                            <option value="Base Set 2 (B2)">Base Set 2 (B2) - 2000</option>
+                            <option value="Fossil (FO)">Fossil (FO) - 1999</option>
+                            <option value="Jungle (JU)">Jungle (JU) - 1999</option>
+                            <option value="Base Set (BS)">Base Set (BS) - 1998</option>
+                            <!-- McDonald's Collections -->
+                            <option value="McDonald's Collection (MCD)">McDonald's Collection (MCD) - Various Years</option>
+                            <!-- Custom -->
+                            <option value="Custom/Other">Custom/Other</option>
+                        </datalist>
+                        <input type="text" id="card-number" placeholder="Card Number" required>
+                        <select id="card-rarity" required>
+                            <option value="">Rarity</option>
+                            <option value="Common">Common</option>
+                            <option value="Uncommon">Uncommon</option>
+                            <option value="Rare">Rare</option>
+                            <option value="Rare Holo">Rare Holo</option>
+                            <option value="Rare Holo EX">Rare Holo EX</option>
+                            <option value="Rare Holo GX">Rare Holo GX</option>
+                            <option value="Rare Holo V">Rare Holo V</option>
+                            <option value="Rare Holo VMAX">Rare Holo VMAX</option>
+                            <option value="Rare Holo VSTAR">Rare Holo VSTAR</option>
+                            <option value="Ultra Rare">Ultra Rare</option>
+                            <option value="Secret Rare">Secret Rare</option>
+                            <option value="Rainbow Rare">Rainbow Rare</option>
+                            <option value="Gold Rare">Gold Rare</option>
+                            <option value="Amazing Rare">Amazing Rare</option>
+                            <option value="Radiant Rare">Radiant Rare</option>
+                            <option value="Special Illustration Rare">Special Illustration Rare</option>
+                        </select>
+                        <select id="card-condition" required>
+                            <option value="">Condition</option>
+                            <option value="Gem Mint (GM) 10">Gem Mint (GM) 10 - Perfect condition</option>
+                            <option value="Mint (M) 9">Mint (M) 9 - Near perfect, minor factory flaws only</option>
+                            <option value="Near Mint+ (NM+) 8.5">Near Mint+ (NM+) 8.5 - Excellent with very minor wear</option>
+                            <option value="Near Mint (NM) 8">Near Mint (NM) 8 - Excellent condition, slight wear</option>
+                            <option value="Near Mint- (NM-) 7.5">Near Mint- (NM-) 7.5 - Good condition, minor flaws</option>
+                            <option value="Excellent+ (EX+) 7">Excellent+ (EX+) 7 - Good with light wear</option>
+                            <option value="Excellent (EX) 6">Excellent (EX) 6 - Light wear, minor edge wear</option>
+                            <option value="Excellent- (EX-) 5.5">Excellent- (EX-) 5.5 - Moderate wear visible</option>
+                            <option value="Very Good+ (VG+) 5">Very Good+ (VG+) 5 - Noticeable wear</option>
+                            <option value="Very Good (VG) 4">Very Good (VG) 4 - Moderate wear and handling</option>
+                            <option value="Good+ (G+) 3.5">Good+ (G+) 3.5 - Heavy wear but complete</option>
+                            <option value="Good (G) 3">Good (G) 3 - Heavy wear, creases possible</option>
+                            <option value="Fair (F) 2">Fair (F) 2 - Very worn, major flaws</option>
+                            <option value="Poor (P) 1">Poor (P) 1 - Extensively damaged</option>
+                        </select>
+                        <input type="text" id="card-quantity" placeholder="Quantity" required>
+                        <input type="text" id="card-value" placeholder="Unit Price ($)" required>
+                        <input type="url" id="card-image-url" placeholder="Card page URL or direct image URL">
+                        <button type="button" id="scrape-url-btn">Scrape URL</button>
+                        <button type="submit" id="submit-card">Add Card</button>
+                    </form>
+                </section>
+
+                <!-- Card Section -->
+                <section class="card-section">
+                    <div class="cards-container" id="cards-container">
+                        <!-- Single Card Template -->
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='280' viewBox='0 0 200 280'%3E%3Crect width='200' height='280' fill='%23374151'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='0.3em' fill='%23ffffff' font-size='14'%3ENo Image%3C/text%3E%3C/svg%3E" alt="Pikachu card">
+                            </div>
+                            <div class="card-info">
+                                <p class="card-name">Pikachu VMAX</p>
+                                <p class="set-name">Vivid Voltage (VIV)</p>
+                                <p class="card-number">043/185</p>
+                                <p class="rarity">Rare Holo VMAX</p>
+                                <p class="condition">Near Mint (NM) 8</p>
+                                <p class="quantity">Quantity: 1</p>
+                                <p class="value">$25.99</p>
+                                <p class="total-value">Total Value: $25.99</p>
+                                <button class="submit-card">Edit</button>
+                                <button class="delete-card">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Settings Tab -->
+            <div id="settings" class="tab-content">
+                <h2>Settings</h2>
+                <p>Settings panel coming soon...</p>
+            </div>
+
+            <!-- Features Tab -->
+            <div id="features" class="tab-content">
+                <h2>Features</h2>
+                <p>Advanced features coming soon...</p>
+            </div>
+
+            <!-- Statistics Tab -->
+            <div id="statistics" class="tab-content">
+                <div class="tab-header">
+                    <h2>Collection Statistics</h2>
+                    <div class="view-controls">
+                        <button id="stats-grid-view-btn" class="view-btn active">
+                            <span class="icon">⊞</span> Grid View
+                        </button>
+                        <button id="stats-list-view-btn" class="view-btn">
+                            <span class="icon">☰</span> List View
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Overview Stats -->
+                <div class="stats-section">
+                    <h3>Overview</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h4>Total Cards</h4>
+                            <span id="stats-total-cards">0</span>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Total Value</h4>
+                            <span id="stats-total-value">$0.00</span>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Average Card Value</h4>
+                            <span id="stats-avg-value">$0.00</span>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Unique Cards</h4>
+                            <span id="stats-unique-cards">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Set Distribution -->
+                <div class="stats-section">
+                    <h3>Set Distribution</h3>
+                    <div class="stats-list" id="stats-sets">
+                        <p>No cards added yet.</p>
+                    </div>
+                </div>
+
+                <!-- Rarity Distribution -->
+                <div class="stats-section">
+                    <h3>Rarity Distribution</h3>
+                    <div class="stats-list" id="stats-rarities">
+                        <p>No cards added yet.</p>
+                    </div>
+                </div>
+
+                <!-- Condition Distribution -->
+                <div class="stats-section">
+                    <h3>Condition Distribution</h3>
+                    <div class="stats-list" id="stats-conditions">
+                        <p>No cards added yet.</p>
+                    </div>
+                </div>
+
+                <!-- Value Analysis -->
+                <div class="stats-section">
+                    <h3>Value Analysis</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h4>Most Valuable Card</h4>
+                            <span id="stats-most-valuable">N/A</span>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Least Valuable Card</h4>
+                            <span id="stats-least-valuable">N/A</span>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Total Investment</h4>
+                            <span id="stats-total-investment">$0.00</span>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Cards Added This Month</h4>
+                            <span id="stats-cards-this-month">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Backup Menu Tab -->
+            <div id="backup-menu" class="tab-content">
+                <h2>Backup & Data Management</h2>
+
+                <!-- Auto Backup Settings -->
+                <div class="backup-section">
+                    <h3>Automatic Backup</h3>
+                    <div class="backup-controls">
+                        <div class="backup-setting">
+                            <label for="auto-backup-toggle">
+                                <input type="checkbox" id="auto-backup-toggle">
+                                Enable Auto Backup
+                            </label>
+                            <small>Automatically backup your collection data</small>
+                        </div>
+                        <div class="backup-setting">
+                            <label for="backup-frequency">Backup Frequency:</label>
+                            <select id="backup-frequency">
+                                <option value="5minutes">Every 5 Minutes</option>
+                                <option value="hourly">Every Hour</option>
+                                <option value="3hours">Every 3 Hours</option>
+                                <option value="6hours">Every 6 Hours</option>
+                                <option value="12hours">Every 12 Hours (Twice Daily)</option>
+                                <option value="daily">Daily</option>
+                                <option value="weekly" selected>Weekly</option>
+                                <option value="biweekly">Bi-weekly (Every 2 Weeks)</option>
+                                <option value="monthly">Monthly</option>
+                                <option value="quarterly">Quarterly (Every 3 Months)</option>
+                                <option value="onaddition">On Every Card Addition</option>
+                            </select>
+                        </div>
+                        <div class="backup-setting">
+                            <label for="max-backups">Max Backups to Keep:</label>
+                            <input type="number" id="max-backups" value="10" min="1" max="50">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manual Backup -->
+                <div class="backup-section">
+                    <h3>Manual Backup</h3>
+                    <div class="backup-actions">
+                        <button class="btn btn-primary" id="create-backup-btn">
+                            <span class="backup-icon">💾</span>
+                            Create Backup Now
+                        </button>
+                        <button class="btn btn-secondary" id="export-json-btn">
+                            <span class="backup-icon">📄</span>
+                            Export as JSON
+                        </button>
+                        <button class="btn btn-secondary" id="export-csv-btn">
+                            <span class="backup-icon">📊</span>
+                            Export as CSV
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Backup Status -->
+                <div class="backup-section">
+                    <h3>Backup Status</h3>
+                    <div class="backup-status">
+                        <div class="status-item">
+                            <label>Last Backup:</label>
+                            <span id="last-backup-time">Never</span>
+                        </div>
+                        <div class="status-item">
+                            <label>Next Scheduled Backup:</label>
+                            <span id="next-backup-time">Not scheduled</span>
+                        </div>
+                        <div class="status-item">
+                            <label>Total Backups:</label>
+                            <span id="total-backups">0</span>
+                        </div>
+                        <div class="status-item">
+                            <label>Storage Used:</label>
+                            <span id="backup-storage-size">0 KB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Restore Data -->
+                <div class="backup-section">
+                    <h3>Restore Data</h3>
+                    <div class="restore-controls">
+                        <div class="file-upload">
+                            <input type="file" id="restore-file-input" accept=".json,.csv" style="display: none;">
+                            <button class="btn btn-warning" id="select-restore-file-btn">
+                                <span class="backup-icon">📁</span>
+                                Select Backup File
+                            </button>
+                            <span id="selected-file-name"></span>
+                        </div>
+                        <button class="btn btn-danger" id="restore-backup-btn" disabled>
+                            <span class="backup-icon">⚠️</span>
+                            Restore from Backup
+                        </button>
+                        <small class="warning-text">⚠️ This will replace all current data!</small>
+                    </div>
+                </div>
+
+                <!-- Backup History -->
+                <div class="backup-section">
+                    <h3>Backup History</h3>
+                    <div class="backup-history" id="backup-history-list">
+                        <p class="empty-state">No backups created yet.</p>
+                    </div>
+                </div>
+
+                <!-- Cloud Backup (Future Feature) -->
+                <div class="backup-section">
+                    <h3>Cloud Backup <span class="coming-soon">(Coming Soon)</span></h3>
+                    <div class="cloud-backup-info">
+                        <p>🌩️ Cloud backup integration coming in future updates:</p>
+                        <ul>
+                            <li>Google Drive integration</li>
+                            <li>Automatic sync across devices</li>
+                            <li>Real-time backup protection</li>
+                            <li>Version history management</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dev Area Tab -->
+            <div id="dev" class="tab-content">
+                <h2>Developer Area</h2>
+                <div class="dev-tools">
+                    <button id="clear-data-btn" class="btn btn-danger">Clear All Data</button>
+                    <button id="export-data-btn" class="btn btn-secondary">Export Data</button>
+                    <button id="import-data-btn" class="btn btn-secondary">Import Data</button>
+                </div>
+                <div class="dev-info">
+                    <h3>Debug Info</h3>
+                    <pre id="debug-info"></pre>
+                </div>
+            </div>
+        </main>
+    <script src="script.js"></script>
+    <script>
+        // Emergency tab navigation if main script fails
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM loaded, setting up emergency tab navigation');
+            
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    console.log('Tab clicked:', e.target.dataset.tab);
+                    
+                    // Remove active from all tabs
+                    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                    
+                    // Add active to clicked tab
+                    e.target.classList.add('active');
+                    const tabName = e.target.dataset.tab;
+                    document.getElementById(tabName).classList.add('active');
+                });
+            });
+            
+            // Test add card button
+            const addCardBtn = document.getElementById('add-card-btn');
+            if (addCardBtn) {
+                addCardBtn.addEventListener('click', () => {
+                    console.log('Add card button clicked');
+                    const formSection = document.getElementById('add-card-form-section');
+                    if (formSection) {
+                        formSection.style.display = formSection.style.display === 'none' ? 'block' : 'none';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

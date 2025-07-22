@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Card Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- === HEADER === -->
+  <header>
+    <div class="header-top">
+      <div class="logo">Logo</div>
+    </div>
+
+    <!-- === SEARCH, FILTERS, GRID/LIST TOGGLE === -->
+    <div class="card-controls">
+      <input type="text" placeholder="Search cards by name...">
+
+      <select>
+        <option>All Sets</option>
+      </select>
+
+      <select>
+        <option>All Rarities</option>
+      </select>
+
+      <select>
+        <option>All Conditions</option>
+      </select>
+
+      <div class="view-toggle">
+        <button>Grid</button>
+        <button>List</button>
+      </div>
+    </div>
+
+    <!-- === DASHBOARD STATS === -->
+    <div class="dashboard-stats">
+      <!-- Add stats content here -->
+      <p>Dashboard Stats</p>
+    </div>
+  </header>
+
+  <!-- === ADD NEW CARD FORM === -->
+  <section class="add-card-form">
+    <form id="card-form">
+      <input type="text" name="cardName" placeholder="Card Name">
+      <input type="text" name="setName" placeholder="Set Name">
+      <input type="text" name="cardNumber" placeholder="Card Number">
+      <input type="text" name="rarity" placeholder="Rarity">
+      <input type="text" name="type" placeholder="Type">
+      <input type="number" name="hp" placeholder="HP">
+      <input type="number" name="price" placeholder="Price">
+      <input type="number" name="quantity" placeholder="Quantity">
+      <input type="number" name="totalValue" placeholder="Total Value">
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <!-- === CARD SECTION === -->
+  <section class="card-section">
+    <div class="cards-container">
+
+      <!-- Single Card Template -->
+      <div class="card">
+        <div class="card-image">
+          <!-- Image goes here -->
+        </div>
+        <div class="card-info">
+          <p class="card-name">Card Name</p>
+          <p class="set-name">Set Name</p>
+          <p class="card-number">Card #</p>
+          <p class="rarity">Rarity</p>
+          <p class="type">Type</p>
+          <p class="hp">HP</p>
+          <p class="price">Price</p>
+          <p class="quantity">Quantity</p>
+          <p class="total-value">Total Value</p>
+          <button class="submit-card">Submit</button>
+          <button class="delete-card">Delete</button>
+        </div>
+      </div>
+
+      <!-- More cards dynamically inserted here -->
+
+    </div>
+  </section>
+
+  <!-- === FOOTER === -->
+  <footer>
+    <p>&copy; 2025 Card Tracker by GamingUtopiaGC</p>
+  </footer>
+
+</body>
+</html>

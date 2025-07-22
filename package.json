@@ -1,0 +1,16 @@
+{
+  "name": "pokemon-card-inventory-tracker",
+  "version": "1.0.0",
+  "description": "A Pokemon card collection management system",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=3000",
+    "dev": "live-server --port=3000 --watch=."
+  },
+  "keywords": ["pokemon", "cards", "inventory", "collection"],
+  "author": "gamingutopiadf",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

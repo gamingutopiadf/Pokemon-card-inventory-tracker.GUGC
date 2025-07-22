@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Card Inventory Tracker - COMPLETED TESTING</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1>Pokemon Card Inventory Tracker - COMPLETED</h1>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="tab-navigation">
+            <button class="tab-btn active" data-tab="dashboard">Dashboard</button>
+            <button class="tab-btn" data-tab="cards">Cards</button>
+            <button class="tab-btn" data-tab="settings">Settings</button>
+            <button class="tab-btn" data-tab="features">Features</button>
+            <button class="tab-btn" data-tab="dev">Dev Area</button>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Dashboard Tab -->
+            <div id="dashboard" class="tab-content active">
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <h3>Total Cards</h3>
+                        <span id="total-cards">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Value</h3>
+                        <span id="total-value">$0.00</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Recent Additions</h3>
+                        <span id="recent-additions">0</span>
+                    </div>
+                </div>
+                <div class="recent-cards">
+                    <h3>Recently Added Cards</h3>
+                    <div id="recent-cards-list" class="cards-preview">
+                        <p class="empty-state">No cards added yet. Go to the Cards tab to add your first card!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cards Tab -->
+            <div id="cards" class="tab-content">
+                <div class="cards-header">
+                    <div class="cards-controls">
+                        <button id="add-card-btn" class="btn btn-primary">Add New Card</button>
+                        <div class="view-toggle">
+                            <button id="grid-view-btn" class="btn btn-secondary active">Grid</button>
+                            <button id="list-view-btn" class="btn btn-secondary">List</button>
+                        </div>
+                    </div>
+                    <div class="search-filter">
+                        <input type="text" id="search-input" placeholder="Search cards by name..." />
+                        <select id="filter-set">
+                            <option value="">All Sets</option>
+                        </select>
+                        <select id="filter-rarity">
+                            <option value="">All Rarities</option>
+                            <option value="Common">Common</option>
+                            <option value="Uncommon">Uncommon</option>
+                            <option value="Rare">Rare</option>
+                            <option value="Rare Holo">Rare Holo</option>
+                            <option value="Ultra Rare">Ultra Rare</option>
+                            <option value="Secret Rare">Secret Rare</option>
+                        </select>
+                        <select id="filter-condition">
+                            <option value="">All Conditions</option>
+                            <option value="Mint">Mint</option>
+                            <option value="Near Mint">Near Mint</option>
+                            <option value="Lightly Played">Lightly Played</option>
+                            <option value="Moderately Played">Moderately Played</option>
+                            <option value="Heavily Played">Heavily Played</option>
+                            <option value="Damaged">Damaged</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="cards-container" class="cards-grid">
+                    <div class="empty-state">
+                        <p>No cards in your collection yet.</p>
+                        <button class="btn btn-primary" onclick="document.getElementById('add-card-btn').click()">Add Your First Card</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div id="settings" class="tab-content">
+                <h2>Settings</h2>
+                <p>Settings panel coming soon...</p>
+            </div>
+
+            <!-- Features Tab -->
+            <div id="features" class="tab-content">
+                <h2>Features</h2>
+                <p>Advanced features coming soon...</p>
+            </div>
+
+            <!-- Dev Area Tab -->
+            <div id="dev" class="tab-content">
+                <h2>Developer Area</h2>
+                <div class="dev-tools">
+                    <button id="clear-data-btn" class="btn btn-danger">Clear All Data</button>
+                    <button id="export-data-btn" class="btn btn-secondary">Export Data</button>
+                    <button id="import-data-btn" class="btn btn-secondary">Import Data</button>
+                </div>
+                <div class="dev-info">
+                    <h3>Debug Info</h3>
+                    <pre id="debug-info"></pre>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Card Modal -->
+    <div id="add-card-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Card</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="add-card-form">
+                <div class="form-group">
+                    <label for="card-name">Card Name *</label>
+                    <input type="text" id="card-name" required placeholder="e.g., Pikachu">
+                </div>
+                <div class="form-group">
+                    <label for="card-set">Set Name *</label>
+                    <input type="text" id="card-set" required placeholder="e.g., Celebrations">
+                </div>
+                <div class="form-group">
+                    <label for="card-number">Card Number *</label>
+                    <input type="text" id="card-number" required placeholder="e.g., 005/025">
+                </div>
+                <div class="form-group">
+                    <label for="card-rarity">Rarity *</label>
+                    <select id="card-rarity" required>
+                        <option value="">Select Rarity</option>
+                        <option value="Common">Common</option>
+                        <option value="Uncommon">Uncommon</option>
+                        <option value="Rare">Rare</option>
+                        <option value="Holo Rare">Holo Rare</option>
+                        <option value="Ultra Rare">Ultra Rare</option>
+                        <option value="Secret Rare">Secret Rare</option>
+                        <option value="Rainbow Rare">Rainbow Rare</option>
+                        <option value="Gold Rare">Gold Rare</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="card-type">Card Type *</label>
+                    <select id="card-type" required>
+                        <option value="">Select Type</option>
+                        <option value="Grass">Grass</option>
+                        <option value="Fire">Fire</option>
+                        <option value="Water">Water</option>
+                        <option value="Lightning">Lightning</option>
+                        <option value="Psychic">Psychic</option>
+                        <option value="Fighting">Fighting</option>
+                        <option value="Darkness">Darkness</option>
+                        <option value="Metal">Metal</option>
+                        <option value="Fairy">Fairy</option>
+                        <option value="Dragon">Dragon</option>
+                        <option value="Colorless">Colorless</option>
+                        <option value="Trainer">Trainer</option>
+                        <option value="Energy">Energy</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="card-hp">HP</label>
+                    <input type="number" id="card-hp" min="0" max="1000" placeholder="e.g., 60">
+                </div>
+                <div class="form-group">
+                    <label for="card-stage">Stage</label>
+                    <select id="card-stage">
+                        <option value="">Select Stage</option>
+                        <option value="Basic">Basic</option>
+                        <option value="Stage 1">Stage 1</option>
+                        <option value="Stage 2">Stage 2</option>
+                        <option value="VMAX">VMAX</option>
+                        <option value="GX">GX</option>
+                        <option value="EX">EX</option>
+                        <option value="V">V</option>
+                        <option value="BREAK">BREAK</option>
+                        <option value="Mega">Mega</option>
+                        <option value="Tag Team">Tag Team</option>
+                    </select>
+                </div>
+                
+                <!-- Photo Upload Section -->
+                <div class="form-section">
+                    <h3>Card Photo</h3>
+                    <div class="form-group">
+                        <label for="card-photo">Upload Card Image</label>
+                        <input type="file" id="card-photo" accept="image/*" capture="environment">
+                        <div class="photo-preview" id="photo-preview" style="display: none;">
+                            <img id="preview-image" alt="Card preview" style="max-width: 200px; max-height: 200px; border-radius: 8px;">
+                            <button type="button" id="remove-photo" class="btn btn-secondary">Remove Photo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Collection Data -->
+                <div class="form-section">
+                    <h3>Collection Details</h3>
+                    <div class="form-group">
+                        <label for="card-condition">Condition *</label>
+                        <select id="card-condition" required>
+                            <option value="">Select Condition</option>
+                            <option value="Mint">Mint</option>
+                            <option value="Near Mint">Near Mint</option>
+                            <option value="Lightly Played">Lightly Played</option>
+                            <option value="Moderately Played">Moderately Played</option>
+                            <option value="Heavily Played">Heavily Played</option>
+                            <option value="Damaged">Damaged</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-quantity">Quantity *</label>
+                        <input type="number" id="card-quantity" min="1" value="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-price">Purchase Price</label>
+                        <input type="number" id="card-price" step="0.01" min="0" placeholder="0.00">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancel-add">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Card</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

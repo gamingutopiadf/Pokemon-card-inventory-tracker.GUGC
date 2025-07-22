@@ -1,0 +1,5 @@
+in add new card section need to have card type added  ex:elements
+need to add a card type to the card section
+need to update settings/ add info 
+need to add features to the app
+need to add dev area feature for progress bar which can be edited with time and date functionality

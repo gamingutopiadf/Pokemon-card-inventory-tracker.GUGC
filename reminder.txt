@@ -1,0 +1,82 @@
+Pokemon Card Inventory Tracker - Development Reminder
+
+=== STEP 1 COMPLETED ✅ ===
+Date: July 21, 2025
+
+Updated card form to use Pokemon card reference data based on Pikachu - Celebrations (CLB) example:
+
+POKEMON CARD FIELDS IMPLEMENTED:
+- Card Number: Required field (e.g., "005/025") 
+- Rarity: Updated with Pokemon rarities (Common, Uncommon, Rare, Holo Rare, Ultra Rare, Secret Rare, Rainbow Rare, Gold Rare)
+- Card Type: All Pokemon types (Grass, Fire, Water, Lightning, Psychic, Fighting, Darkness, Metal, Fairy, Dragon, Colorless, Trainer, Energy)
+- HP: Number input for health points (0-1000)
+- Stage: Pokemon evolution stages (Basic, Stage 1, Stage 2, VMAX, GX, EX, V, BREAK, Mega, Tag Team)
+
+PHOTO UPLOAD SECTION ADDED:
+- File upload input with camera support for mobile
+- Photo preview functionality 
+- Remove photo option
+- Photos display at top of card items in collection
+
+FORM ORGANIZATION:
+1. Pokemon Card Data (the 5 reference fields specified)
+2. Photo Section (upload and preview)
+3. Collection Details (condition, quantity, purchase price)
+
+CARD DISPLAY UPDATES:
+- Shows Pokemon-specific fields when available
+- Card photos appear at top of each card
+- Conditional rendering for optional fields (Type, HP, Stage)
+
+=== NEXT: STEP 2 PENDING ===
+User will provide feedback on Step 1, then proceed to Step 2: Photo scraping functionality
+
+⚡ **WORKING ENVIRONMENT: testing-environment/ folder**
+- All development will stay in testing-environment until user says different
+- Port: 3001 (http://localhost:3001)
+- Storage: 'pokemonCards_testing'
+- Safe to experiment and break things
+
+=== ENVIRONMENT STRUCTURE ===
+Created separate testing environments:
+
+1. **Main Environment**: f:\side-projects\Pokemon-card-inventory-tracker.GUGC\
+   - Port: 3000
+   - Storage: 'pokemonCards'
+   - Purpose: Main development
+
+2. **Testing Environment**: f:\side-projects\Pokemon-card-inventory-tracker.GUGC\testing-environment\
+   - Port: 3001  
+   - Storage: 'pokemonCards_testing'
+   - Purpose: Experimental features and new development
+
+3. **Completed Testing**: f:\side-projects\Pokemon-card-inventory-tracker.GUGC\completed-testing\
+   - Port: 3002
+   - Storage: 'pokemonCards_completed'  
+   - Purpose: Stable, verified features
+
+Each environment has:
+- Separate package.json with different ports
+- Isolated localStorage to prevent data conflicts
+- Clear labeling in titles and headers
+- Individual README files with setup instructions
+
+=== REFERENCE EXAMPLE USED ===
+Pikachu - Celebrations (CLB)
+- Card Number: 005/025
+- Rarity: Holo Rare
+- Card Type: Lightning  
+- HP: 60
+- Stage: Basic
+
+=== TECHNICAL NOTES ===
+- Updated HTML form structure with sections
+- Enhanced CSS for photo upload and preview
+- Modified JavaScript to handle new fields and photo upload
+- Card data structure expanded to include new Pokemon fields
+- Photo storage using base64 data URLs in localStorage
+
+=== FILES MODIFIED ===
+- index.html: Updated form structure with Pokemon fields and photo upload
+- styles.css: Added photo upload styles and card photo display
+- script.js: Updated card data structure and photo handling logic

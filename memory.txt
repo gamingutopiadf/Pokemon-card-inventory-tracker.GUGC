@@ -1,0 +1,203 @@
+Pokemon Card Inventory Tracker - Theme & Design Memory
+
+=== PREFERRED THEME ===
+Primary Colors:
+- Background: Black (#000000)
+- Secondary Background: Dark Blue-Gray (#1a1a2e, #16213e)
+- Text: White (#ffffff)
+- Secondary Text: Light Blue-Gray (#a8b2d1)
+
+=== COLOR PALETTE ===
+- Pure Black: #000000
+- Dark Navy: #1a1a2e
+- Medium Navy: #16213e
+- Border/Accent: #2a2a3e
+- Light Text: #ffffff
+- Muted Text: #a8b2d1
+- Success/Accent: Linear gradients between navy shades
+
+=== DESIGN PRINCIPLES ===
+- Dark theme with high contrast
+- White lettering on black/dark backgrounds
+- Dynamic/flush backgrounds using gradients
+- Smooth transitions and hover effects
+- Modern, clean aesthetic
+- Glowing/shadow effects for depth
+
+=== VISUAL EFFECTS ===
+Background Gradients:
+- Main: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%)
+- Cards: linear-gradient(135deg, #1a1a2e, #16213e)
+- Header: linear-gradient(90deg, #000000 0%, #1a1a2e 100%)
+
+Special Effects:
+- Backdrop blur filters
+- Box shadows with navy accents
+- Text gradients for headers
+- Subtle animations (fadeIn, translateY)
+- Hover states with lift effects
+
+=== LAYOUT STRUCTURE ===
+Navigation Tabs:
+1. Dashboard
+2. Cards  
+3. Settings
+4. Features
+5. Dev Area
+
+=== TYPOGRAPHY ===
+- Font Family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+- Header Text: Bold with gradient effects
+- Body Text: Clean, readable white text
+- Code/Debug: 'Courier New', monospace with green text (#00ff00)
+
+=== COMPONENT STYLING ===
+Cards:
+- Rounded corners (12px border-radius)
+- Gradient backgrounds
+- Colored top borders (3px)
+- Hover animations (translateY, shadow)
+- Semi-transparent overlays
+
+Buttons:
+- Navy backgrounds with hover effects
+- Primary: Gradient navy shades
+- Secondary: Solid gray-navy
+- Danger: Red (#dc3545)
+- Smooth transitions and lift effects
+
+Forms/Inputs:
+- Dark backgrounds (#1a1a2e)
+- Navy borders that glow on focus
+- White text with placeholder styling
+
+=== RESPONSIVE DESIGN ===
+- Mobile-first approach
+- Flexible grid layouts
+- Collapsible navigation for small screens
+- Touch-friendly button sizes
+- Readable text at all screen sizes
+
+=== ACCESSIBILITY ===
+- High contrast ratios
+- Clear focus states
+- Readable font sizes
+- Semantic HTML structure
+- Keyboard navigation support
+
+=== THEME INSPIRATION ===
+- Gaming/Tech aesthetic
+- Pokemon card collection feel
+- Professional but fun
+- Night mode optimized
+- Easy on the eyes for long sessions
+
+=== FUTURE THEME NOTES ===
+- Consider adding Pokemon-themed accent colors
+- Potential for theme customization options
+- Could add subtle Pokemon-inspired patterns
+- Animation opportunities for card interactions
+- Possible integration of card rarity colors
+
+=== SAVED PREFERENCES ===
+User specifically likes:
+✓ Black and dark blue-gray color scheme
+✓ White lettering on dark backgrounds  
+✓ Dynamic/flush gradient backgrounds
+✓ Clean tab navigation structure
+✓ Professional gaming aesthetic
+✓ Smooth animations and transitions
+✓ High contrast readability
+
+=== CSS THEME VARIABLES (for future use) ===
+:root {
+  --primary-black: #000000;
+  --dark-navy: #1a1a2e;
+  --medium-navy: #16213e;
+  --border-color: #2a2a3e;
+  --text-primary: #ffffff;
+  --text-secondary: #a8b2d1;
+  --accent-gradient: linear-gradient(135deg, #1a1a2e, #16213e);
+  --main-gradient: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%);
+}
+
+=== DEVELOPMENT ENVIRONMENT STRUCTURE ===
+Date Added: July 21, 2025
+Updated: Cleaned up duplicate testing folders
+
+TESTING ENVIRONMENTS (FINAL STRUCTURE):
+
+1. **Main Environment** (Original Development)
+   - Location: Root folder (f:\side-projects\Pokemon-card-inventory-tracker.GUGC\)
+   - Port: 3000
+   - Storage Key: 'pokemonCards'
+   - Purpose: Main development work
+   - Access: npm start
+
+2. **Testing Environment** (Experimental) - ACTIVE TESTING FOLDER
+   - Location: testing-environment/ folder
+   - Port: 3001
+   - Storage Key: 'pokemonCards_testing'
+   - Purpose: Experimental features and new development
+   - Title: "Pokemon Card Inventory Tracker - TESTING"
+   - Access: cd testing-environment && npm start
+   - Status: ✅ Complete with all files (HTML, CSS, JS, README, package.json)
+
+3. **Completed Testing** (Stable)
+   - Location: completed-testing/ folder
+   - Port: 3002
+   - Storage Key: 'pokemonCards_completed'
+   - Purpose: Stable, verified features
+   - Title: "Pokemon Card Inventory Tracker - COMPLETED"
+   - Access: cd completed-testing && npm start
+
+CLEANUP NOTES:
+- Removed duplicate incomplete "testing/" folder
+- Using "testing-environment/" as the finished testing folder
+- All environments now have complete file sets
+
+ISOLATION FEATURES:
+- Separate localStorage keys prevent data conflicts
+- Different ports allow simultaneous running
+- Clear environment labeling in headers
+- Individual package.json files with environment-specific settings
+- Separate README files with setup instructions
+
+WORKFLOW:
+1. Develop new features in testing-environment (Port 3001)
+2. Test and verify in testing-environment
+3. Move stable features to completed-testing (Port 3002)
+4. Keep main environment (Port 3000) as primary development
+
+CURRENT STATUS:
+- All environments have Step 1 completed (Pokemon card fields + photo upload)
+- Cards tab now includes dashboard stats matching Dashboard tab
+- Dashboard stats update in real-time across both Dashboard and Cards tabs
+- Ready for Step 2 development in testing-environment
+- Safe experimentation without affecting stable versions
+
+=== STEP 1 ENHANCEMENT COMPLETED (July 21, 2025) ===
+CARDS TAB DASHBOARD STATS:
+- Added three stat cards to Cards tab header:
+  * Total Cards count
+  * Total Value (sum of all card values)
+  * Recent Additions (cards added in last 7 days)
+- Stats identical to Dashboard tab for UI consistency
+- Real-time synchronization between Dashboard and Cards tabs
+- CSS styling matches existing dark theme design
+- JavaScript updates both sets of stats simultaneously
+
+IMPLEMENTATION DETAILS:
+- HTML: Added cards-dashboard-stats section with stat-card elements
+- CSS: Applied existing stat card styling to .cards-dashboard-stats
+- JavaScript: Modified updateDashboard() to update both Dashboard and Cards tab stats
+- Element IDs: cards-total-cards, cards-total-value, cards-recent-additions
+
+=== IMPORTANT FILES TO PRESERVE ===
+NEVER DELETE THESE CORE PROJECT FILES:
+- memory.txt (this file - contains all project knowledge and preferences)
+- steps.txt (contains the full development roadmap and step-by-step plan)
+- ideas.txt (contains original project concepts and future feature ideas)
+- README.md (project documentation)
+
+These files contain critical project context and must be maintained throughout development.

@@ -1,0 +1,18 @@
+{
+  "name": "pokemon-card-tracker-testing-environment",
+  "version": "1.0.0-test",
+  "description": "Testing environment for Pokemon card collection management system - Experimental features",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=3001",
+    "dev": "live-server --port=3001 --watch=.",
+    "test": "echo 'Testing Environment - Port 3001'"
+  },
+  "keywords": ["pokemon", "cards", "inventory", "collection", "testing", "experimental"],
+  "author": "gamingutopiadf",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "notes": "This is the experimental testing environment. Use this for testing new features before moving to completed-testing."
+}
